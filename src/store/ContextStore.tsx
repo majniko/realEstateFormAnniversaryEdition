@@ -1,40 +1,36 @@
-import React, {createContext} from "react";
+import React, { createContext } from 'react'
 
 export type initialStoreStateProps = {
-    realEstateForm: {
-        estateType: 'house' | 'apartment' | 'land' | ''
-        region: string
-        district: string
-        client: {
-            name: string
-            email: string
-            phone: string
-        }
-    }
+  realEstateForm: {
+    estateType: string
+    region: string
+    district: string
+    name: string
+    email: string
+    phone: string
+  }
 }
 
 export type initialStoreProps = {
-    state: initialStoreStateProps
-    setState: React.Dispatch<React.SetStateAction<initialStoreStateProps>>
+  state: initialStoreStateProps
+  setState: React.Dispatch<React.SetStateAction<initialStoreStateProps>>
 }
 
 export const initialStoreState: initialStoreStateProps = {
-    realEstateForm: {
-        estateType: '',
-        region: '',
-        district: '',
-        client: {
-            name: '',
-            email: '',
-            phone: '',
-        }
-    }
+  realEstateForm: {
+    estateType: '',
+    region: '',
+    district: '',
+    name: '',
+    email: '',
+    phone: '',
+  },
 }
 
 export const ContextStore = createContext<initialStoreProps | null>(null)
 
-export const Store = ({children}: { children: React.ReactNode }) => {
-    const [state, setState] = React.useState<initialStoreStateProps>(initialStoreState)
+export const Store = ({ children }: { children: React.ReactNode }) => {
+  const [state, setState] = React.useState<initialStoreStateProps>(initialStoreState)
 
-    return <ContextStore.Provider value={{state, setState }}>{children}</ContextStore.Provider>
+  return <ContextStore.Provider value={{ state, setState }}>{children}</ContextStore.Provider>
 }
