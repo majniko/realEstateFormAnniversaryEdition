@@ -1,0 +1,36 @@
+.successContainer {
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    display: block;
+    height: calc(100% - 2rem);
+    padding: 2rem 1rem 2rem;
+    width: calc(100% - 2rem);
+}
+
+.imageContainer {
+    width: fit-content;
+    margin: 6rem auto 2rem;
+}
+
+.text {
+    @media (max-width: 599px) {
+        width: 100%;
+    }
+    @media (min-width: 600px) {
+        width: 80%;
+    }
+    margin: 0 auto;
+}
+
+.buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: fit-content;
+    margin: 2rem auto;
+}
+
+.button {
+    margin: 0 0.5rem;
+}

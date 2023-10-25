@@ -14,12 +14,14 @@ export async function POST(req: Request) {
 
   let isValid = true
 
+  console.log(lead)
+
   if (!validateEmail(lead.email)) isValid = false
   if (!validatePhone(lead.phone)) isValid = false
-  if (validateNotEmpty(lead.name)) isValid = false
-  if (validateNotEmpty(lead.district)) isValid = false
-  if (validateNotEmpty(lead.region)) isValid = false
-  if (validateNotEmpty(lead.estateType)) isValid = false
+  if (!validateNotEmpty(lead.name)) isValid = false
+  if (!validateNotEmpty(lead.district)) isValid = false
+  if (!validateNotEmpty(lead.region)) isValid = false
+  if (!validateNotEmpty(lead.estateType)) isValid = false
 
   if (!isValid) return NextResponse.json({ message: 'invalid_data' })
 

@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { ContextStore, initialStoreProps, initialStoreStateProps } from '@/store/ContextStore'
+import React, { useContext, useEffect } from 'react'
+import { ContextStore, initialStoreProps, initialStoreState } from '@/store/ContextStore'
 import { postLead } from '@/utils/clientApiCalls/postLead'
 import { validateNotEmpty } from '@/utils/validation/validateNotEmpty'
 import { validatePhone } from '@/utils/validation/validatePhone'
@@ -25,6 +25,12 @@ export const useRealEstateForm = () => {
     phoneError: false,
     emailError: false,
   })
+
+  useEffect(() => {
+    return () => {
+      setState(initialStoreState)
+    }
+  }, [setState])
 
   const handleInputChange = (inputName: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
     setState(prevState => ({

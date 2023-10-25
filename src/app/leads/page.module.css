@@ -1,0 +1,17 @@
+.leadsContainer {
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    display: block;
+    height: calc(100% - 2rem);
+    padding: 2rem 1rem 2rem;
+    width: calc(100% - 2rem);
+}
+
+.leadsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 0.5rem;
+    width: 80%;
+    margin: 2rem auto;
+}
