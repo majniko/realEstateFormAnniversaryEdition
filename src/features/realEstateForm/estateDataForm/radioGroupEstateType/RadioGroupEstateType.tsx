@@ -8,16 +8,15 @@ export type RadioGroupEstateTypeProps = {
   estateType: string
   handleInputChange: (inputName: string) => (e: React.ChangeEvent<HTMLInputElement>) => void
   estateTypeError: boolean
+  isSubmitted: boolean
 }
 
 export const RadioGroupEstateType = (props: RadioGroupEstateTypeProps) => {
-  const { estateType, handleInputChange, estateTypeError } = props
-
-  console.log('estateType', estateTypeError)
+  const { estateType, handleInputChange, estateTypeError, isSubmitted } = props
 
   return (
     <div className={styles.radioGroupEstateType}>
-      <FormControl error={estateTypeError} variant="standard">
+      <FormControl error={estateTypeError} variant="standard" disabled={isSubmitted}>
         <FormLabel id="estateTypeSelect">{localization.cz.reForm.estateType}</FormLabel>
         <RadioGroup
           row

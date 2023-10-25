@@ -9,17 +9,18 @@ export type RadioGroupDistrictProps = {
   district: string
   handleInputChange: (inputName: string) => (e: React.ChangeEvent<HTMLInputElement>) => void
   districtError: boolean
+  isSubmitted: boolean
 }
 
 export const RadioGroupDistrict = (props: RadioGroupDistrictProps) => {
-  const { region, district, handleInputChange, districtError } = props
+  const { region, district, handleInputChange, districtError, isSubmitted } = props
 
   if (region === '')
     return <div className={styles.radioGroupDistrict}>{districtError && localization.cz.reForm.districtError}</div>
 
   return (
     <div className={styles.radioGroupDistrict}>
-      <FormControl error={districtError} variant="standard" className={styles.districtForm}>
+      <FormControl error={districtError} variant="standard" className={styles.districtForm} disabled={isSubmitted}>
         <FormLabel id="districtSelect">{localization.cz.reForm.district}</FormLabel>
         <RadioGroup
           row

@@ -14,8 +14,6 @@ export async function POST(req: Request) {
 
   let isValid = true
 
-  console.log(lead)
-
   if (!validateEmail(lead.email)) isValid = false
   if (!validatePhone(lead.phone)) isValid = false
   if (!validateNotEmpty(lead.name)) isValid = false

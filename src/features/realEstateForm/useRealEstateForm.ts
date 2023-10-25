@@ -4,6 +4,7 @@ import { postLead } from '@/utils/clientApiCalls/postLead'
 import { validateNotEmpty } from '@/utils/validation/validateNotEmpty'
 import { validatePhone } from '@/utils/validation/validatePhone'
 import { validateEmail } from '@/utils/validation/validateEmail'
+import { useRouter } from 'next/navigation'
 
 type errorProps = {
   estateTypeError: boolean
@@ -14,6 +15,7 @@ type errorProps = {
 }
 
 export const useRealEstateForm = () => {
+  const router = useRouter()
   const { state, setState } = useContext(ContextStore) as initialStoreProps
   const {
     realEstateForm: { estateType, region, district, name, phone, email, page, isSubmitted },
@@ -109,7 +111,19 @@ export const useRealEstateForm = () => {
     }))
 
     const response = await postLead({ estateType, region, district, name, phone, email })
-    console.log(response)
+
+    if (response.message === 'success') {
+      router.push('/success')
+    }
+
+    if (
+      response.message === 'missing_data' ||
+      response.message === 'invalid_data' ||
+      response.message === 'prisma_error' ||
+      response.message === 'network_error'
+    ) {
+      router.push('/error')
+    }
   }
 
   return {

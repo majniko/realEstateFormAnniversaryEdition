@@ -10,6 +10,7 @@ export const RealEstateForm = () => {
     lead,
     error,
     page,
+    isSubmitted,
     handleMapChange,
     handleInputChange,
     handleSubmit,
@@ -31,6 +32,7 @@ export const RealEstateForm = () => {
           validateChangeToSecondPage={validateChangeToSecondPage}
           estateTypeError={estateTypeError}
           districtError={districtError}
+          isSubmitted={isSubmitted}
         />
       )}
       {page === 1 && (
@@ -44,6 +46,7 @@ export const RealEstateForm = () => {
           nameError={nameError}
           emailError={emailError}
           phoneError={phoneError}
+          isSubmitted={isSubmitted}
         />
       )}
     </div>

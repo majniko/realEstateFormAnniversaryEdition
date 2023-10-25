@@ -13,6 +13,7 @@ export const localization = {
       nextPage: 'Další stránka',
       previousPage: 'Předchozí stránka',
       nameSurname: 'Jméno a příjmení',
+      contactDetails: 'Kontaktní údaje',
       email: 'E-mail',
       phone: 'Telefon',
       nameError: 'Vyplňte prosím jméno a příjmení.',
@@ -25,6 +26,7 @@ export const localization = {
         'Něco se bohužel pokazilo, ale není třeba zoufat. Kliknutím na první tlačítko níže si můžete celý proces hezky zopakovat, kliknutím na to druhé se můžete podívat na záznamy zájemců, kteří byly úspěšnější, než vy.',
       retry: 'Zkusit znovu',
       leadsList: 'Seznam zájemců',
+      backToStart: '<- zpět na úvod',
     },
   },
 }

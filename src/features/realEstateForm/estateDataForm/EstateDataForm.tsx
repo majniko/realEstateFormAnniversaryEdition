@@ -15,6 +15,7 @@ export type EstateDataForm = {
   validateChangeToSecondPage: () => void
   estateTypeError: boolean
   districtError: boolean
+  isSubmitted: boolean
 }
 
 export const EstateDataForm = (props: EstateDataForm) => {
@@ -27,6 +28,7 @@ export const EstateDataForm = (props: EstateDataForm) => {
     validateChangeToSecondPage,
     districtError,
     estateTypeError,
+    isSubmitted,
   } = props
 
   return (
@@ -35,15 +37,23 @@ export const EstateDataForm = (props: EstateDataForm) => {
         estateType={estateType}
         handleInputChange={handleInputChange}
         estateTypeError={estateTypeError}
+        isSubmitted={isSubmitted}
       />
-      <RegionMapSelect county={region} handleChange={handleMapChange} />
+      <RegionMapSelect region={region} handleChange={handleMapChange} />
       <RadioGroupDistrict
         district={district}
         region={region}
         handleInputChange={handleInputChange}
         districtError={districtError}
+        isSubmitted={isSubmitted}
       />
-      <Button variant="contained" color="primary" onClick={validateChangeToSecondPage} className={styles.button}>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={validateChangeToSecondPage}
+        className={styles.button}
+        disabled={isSubmitted}
+      >
         {localization.cz.reForm.nextPage}
       </Button>
     </div>
