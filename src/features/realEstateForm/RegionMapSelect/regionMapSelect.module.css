@@ -1,0 +1,20 @@
+.region {
+    fill: #178cce;
+    cursor: pointer;
+    transition: all 350ms;
+}
+
+.region:hover {
+    fill: #0ad9ba;
+    cursor: pointer;
+}
+
+.region-active {
+    fill: #ffffff;
+    stroke: darkcyan;
+}
+
+.region-active:hover {
+    fill: rgba(227, 227, 227, 0.89);
+    stroke: darkcyan;
+}

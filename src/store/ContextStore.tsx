@@ -1,3 +1,4 @@
+'use client'
 import React, { createContext } from 'react'
 
 export type initialStoreStateProps = {
@@ -8,6 +9,7 @@ export type initialStoreStateProps = {
     name: string
     email: string
     phone: string
+    page: number
   }
 }
 
@@ -24,6 +26,7 @@ export const initialStoreState: initialStoreStateProps = {
     name: '',
     email: '',
     phone: '',
+    page: 0,
   },
 }
 
