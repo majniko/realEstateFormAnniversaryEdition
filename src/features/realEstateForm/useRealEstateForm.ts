@@ -122,7 +122,7 @@ export const useRealEstateForm = () => {
       response.message === 'prisma_error' ||
       response.message === 'network_error'
     ) {
-      router.push('/error')
+      router.push('/failure')
     }
   }
 
