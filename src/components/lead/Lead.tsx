@@ -1,6 +1,6 @@
 import { leadProps } from '@/utils/clientApiCalls/postLead'
 import React from 'react'
-import styles from './Lead.module.css'
+import styles from './lead.module.css'
 
 export const Lead = (props: leadProps): React.ReactElement => {
   const { name, email, phone, region, district, estateType } = props
