@@ -2,6 +2,7 @@ import React from 'react'
 import { FormControl, FormControlLabel, FormHelperText, FormLabel, Radio, RadioGroup } from '@mui/material'
 import { estateTypes } from '@/utils/estateTypes'
 import { localization } from '@/utils/localization/localization'
+import styles from './radioGroupEstateType.module.css'
 
 export type RadioGroupEstateTypeProps = {
   estateType: string
@@ -12,8 +13,10 @@ export type RadioGroupEstateTypeProps = {
 export const RadioGroupEstateType = (props: RadioGroupEstateTypeProps) => {
   const { estateType, handleInputChange, estateTypeError } = props
 
+  console.log('estateType', estateTypeError)
+
   return (
-    <div className="radioGroupEstateType">
+    <div className={styles.radioGroupEstateType}>
       <FormControl error={estateTypeError} variant="standard">
         <FormLabel id="estateTypeSelect">{localization.cz.reForm.estateType}</FormLabel>
         <RadioGroup

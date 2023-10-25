@@ -1,8 +1,27 @@
 import { NextResponse } from 'next/server'
 import prisma from '@/prisma/prisma'
+import { leadProps } from '@/utils/clientApiCalls/postLead'
+import { validateEmail } from '@/utils/validation/validateEmail'
+import { validatePhone } from '@/utils/validation/validatePhone'
+import { validateNotEmpty } from '@/utils/validation/validateNotEmpty'
 
 export async function POST(req: Request) {
-  const lead = await req.json()
+  const lead: leadProps = await req.json()
+
+  if (!lead.name || !lead.email || !lead.phone || !lead.estateType || !lead.region || !lead.district) {
+    return NextResponse.json({ message: 'missing_data' })
+  }
+
+  let isValid = true
+
+  if (!validateEmail(lead.email)) isValid = false
+  if (!validatePhone(lead.phone)) isValid = false
+  if (validateNotEmpty(lead.name)) isValid = false
+  if (validateNotEmpty(lead.district)) isValid = false
+  if (validateNotEmpty(lead.region)) isValid = false
+  if (validateNotEmpty(lead.estateType)) isValid = false
+
+  if (!isValid) return NextResponse.json({ message: 'invalid_data' })
 
   try {
     await prisma.leads.create({

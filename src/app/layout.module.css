@@ -1,0 +1,51 @@
+.appBar {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding-top: 0.25rem;
+    position: fixed;
+    height: 3.75rem;
+    background-color: white;
+    box-shadow: 0 5px 5px 3px darkgray;
+    z-index: 1400;
+}
+
+.page {
+    display: flex;
+    height: calc(100vh - 4rem);
+    margin-top: 4rem;
+    @media (max-width: 599px) {
+        width: 100vw;
+    }
+    @media (min-width: 768px) {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+    @media (min-width: 992px)  {
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+    @media (min-width: 1440px)  {
+        padding-left: 15vw;
+        padding-right: 15vw;
+    }
+    @media (min-width: 1600px)  {
+        padding-left: 20vw;
+        padding-right: 20vw;
+    }
+    @media (min-width: 1920px)  {
+        padding-left: 25vw;
+        padding-right: 25vw;
+    }
+}
+
+.container {
+    display: block;
+    position: sticky;
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 5px 5px 3px darkgray;
+}

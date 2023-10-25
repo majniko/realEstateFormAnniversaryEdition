@@ -14,11 +14,12 @@ export type RadioGroupDistrictProps = {
 export const RadioGroupDistrict = (props: RadioGroupDistrictProps) => {
   const { region, district, handleInputChange, districtError } = props
 
-  if (region === '') return <div className={styles.radioGroupDistrict} />
+  if (region === '')
+    return <div className={styles.radioGroupDistrict}>{districtError && localization.cz.reForm.districtError}</div>
 
   return (
-    <div className="radioGroupDistrict">
-      <FormControl error={districtError} variant="standard">
+    <div className={styles.radioGroupDistrict}>
+      <FormControl error={districtError} variant="standard" className={styles.districtForm}>
         <FormLabel id="districtSelect">{localization.cz.reForm.district}</FormLabel>
         <RadioGroup
           row
@@ -26,6 +27,7 @@ export const RadioGroupDistrict = (props: RadioGroupDistrictProps) => {
           name="districtSelect"
           value={district}
           onChange={handleInputChange('district')}
+          className={styles.districtGroup}
         >
           {districtList
             .filter(district => {
@@ -37,14 +39,17 @@ export const RadioGroupDistrict = (props: RadioGroupDistrictProps) => {
                 value={option.district}
                 control={<Radio />}
                 label={option.districtDisplayName}
+                className={styles.districtLabel}
               />
             ))}
         </RadioGroup>
-        {districtError ? (
-          <FormHelperText>{localization.cz.reForm.districtError}</FormHelperText>
-        ) : (
-          <FormHelperText> </FormHelperText>
-        )}
+        <div className={styles.helperText}>
+          {districtError ? (
+            <FormHelperText>{localization.cz.reForm.districtError}</FormHelperText>
+          ) : (
+            <FormHelperText> </FormHelperText>
+          )}
+        </div>
       </FormControl>
     </div>
   )

@@ -6,39 +6,45 @@ import { EstateDataForm } from '@/features/realEstateForm/estateDataForm/EstateD
 import { ContactForm } from '@/features/realEstateForm/contactForm/ContactForm'
 
 export const RealEstateForm = () => {
-  const { lead, error, page, handleMapChange, handleInputChange, handleSubmit, handlePageChange } = useRealEstateForm()
+  const {
+    lead,
+    error,
+    page,
+    handleMapChange,
+    handleInputChange,
+    handleSubmit,
+    handlePageChange,
+    validateChangeToSecondPage,
+  } = useRealEstateForm()
   const { estateType, region, district, name, phone, email } = lead
   const { estateTypeError, districtError, nameError, phoneError, emailError } = error
 
   return (
     <div className={styles.realEstateForm}>
       {page === 0 && (
-        <div className={styles.estateDataForm}>
-          <EstateDataForm
-            estateType={estateType}
-            region={region}
-            district={district}
-            handleInputChange={handleInputChange}
-            handleMapChange={handleMapChange}
-            handlePageChange={handlePageChange}
-            estateTypeError={estateTypeError}
-            districtError={districtError}
-          />
-        </div>
+        <EstateDataForm
+          estateType={estateType}
+          region={region}
+          district={district}
+          handleInputChange={handleInputChange}
+          handleMapChange={handleMapChange}
+          validateChangeToSecondPage={validateChangeToSecondPage}
+          estateTypeError={estateTypeError}
+          districtError={districtError}
+        />
       )}
       {page === 1 && (
-        <div className={styles.contactForm}>
-          <ContactForm
-            name={name}
-            email={email}
-            phone={phone}
-            handleInputChange={handleInputChange}
-            handleSubmit={handleSubmit}
-            nameError={nameError}
-            emailError={emailError}
-            phoneError={phoneError}
-          />
-        </div>
+        <ContactForm
+          name={name}
+          email={email}
+          phone={phone}
+          handleInputChange={handleInputChange}
+          handlePageChange={handlePageChange}
+          handleSubmit={handleSubmit}
+          nameError={nameError}
+          emailError={emailError}
+          phoneError={phoneError}
+        />
       )}
     </div>
   )

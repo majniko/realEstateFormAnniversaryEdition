@@ -4,6 +4,7 @@ import { RegionMapSelect } from '@/features/realEstateForm/RegionMapSelect/Regio
 import { RadioGroupDistrict } from '@/features/realEstateForm/estateDataForm/radioGroupDistrict/RadioGroupDistrict'
 import { Button } from '@mui/material'
 import { localization } from '@/utils/localization/localization'
+import styles from './estateDataForm.module.css'
 
 export type EstateDataForm = {
   estateType: string
@@ -11,7 +12,7 @@ export type EstateDataForm = {
   district: string
   handleInputChange: (inputName: string) => (e: React.ChangeEvent<HTMLInputElement>) => void
   handleMapChange: (region: string) => () => void
-  handlePageChange: (pageNumber: number) => () => void
+  validateChangeToSecondPage: () => void
   estateTypeError: boolean
   districtError: boolean
 }
@@ -23,13 +24,13 @@ export const EstateDataForm = (props: EstateDataForm) => {
     district,
     handleInputChange,
     handleMapChange,
-    handlePageChange,
+    validateChangeToSecondPage,
     districtError,
     estateTypeError,
   } = props
 
   return (
-    <div className="estateDataForm">
+    <div className={styles.estateDataFrom}>
       <RadioGroupEstateType
         estateType={estateType}
         handleInputChange={handleInputChange}
@@ -42,7 +43,7 @@ export const EstateDataForm = (props: EstateDataForm) => {
         handleInputChange={handleInputChange}
         districtError={districtError}
       />
-      <Button variant="contained" color="primary" onClick={handlePageChange(1)}>
+      <Button variant="contained" color="primary" onClick={validateChangeToSecondPage} className={styles.button}>
         {localization.cz.reForm.nextPage}
       </Button>
     </div>

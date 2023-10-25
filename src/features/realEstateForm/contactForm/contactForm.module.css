@@ -1,0 +1,44 @@
+.contactForm {
+    position: relative;
+    display: block;
+    min-height: calc(100% - 6rem);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    width: 100%;
+}
+
+.contactFormTitle {
+    @media (max-width: 599px) {
+        width: 100%;
+    }
+    @media (min-width: 600px) {
+        width: 60%;
+    }
+    margin: 0 auto 5rem;
+}
+
+.sendButton {
+    position: absolute;
+    right: 0;
+    bottom: 1rem;
+}
+
+.previousButton {
+    position: absolute;
+    left: 0;
+    bottom: 1rem;
+}
+
+.textFieldContainer {
+    @media (max-width: 599px) {
+        width: 100%;
+    }
+    @media (min-width: 600px) {
+        width: 60%;
+    }
+    margin: 0 auto;
+}
+
+.textField {
+    min-width: 100%;
+}

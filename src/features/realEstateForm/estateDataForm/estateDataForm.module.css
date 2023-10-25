@@ -1,0 +1,12 @@
+.estateDataFrom {
+    position: relative;
+    display: block;
+    min-height: calc(100% - 3rem);
+    padding-bottom: 3rem;
+}
+
+.button {
+    position: absolute;
+    right: 0;
+    bottom: 1rem;
+}

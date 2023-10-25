@@ -1,3 +1,8 @@
+.map {
+    margin: 0 0 1rem;
+    padding: 0 2rem;
+}
+
 .region {
     fill: #178cce;
     cursor: pointer;
@@ -9,12 +14,12 @@
     cursor: pointer;
 }
 
-.region-active {
+.regionActive {
     fill: #ffffff;
     stroke: darkcyan;
 }
 
-.region-active:hover {
+.regionActive:hover {
     fill: rgba(227, 227, 227, 0.89);
     stroke: darkcyan;
 }

@@ -8,8 +8,10 @@ export type CountyMapProps = {
 }
 
 export const RegionMapSelect = ({ handleChange, county }: CountyMapProps): React.ReactElement => {
+  console.log(county)
+
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="1000" version="1.1" viewBox="0 0 1412 809" id="svg90">
+    <svg xmlns="http://www.w3.org/2000/svg" className={styles.map} version="1.1" viewBox="0 0 1412 809" id="svg90">
       <path
         className={cn(styles.region, {
           [styles.regionActive]: 'usteckyKraj' === county,

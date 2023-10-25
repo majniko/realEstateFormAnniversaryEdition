@@ -10,6 +10,7 @@ export type initialStoreStateProps = {
     email: string
     phone: string
     page: number
+    isSubmitted: boolean
   }
 }
 
@@ -27,6 +28,7 @@ export const initialStoreState: initialStoreStateProps = {
     email: '',
     phone: '',
     page: 0,
+    isSubmitted: false,
   },
 }
 
