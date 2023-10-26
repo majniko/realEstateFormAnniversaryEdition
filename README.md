@@ -5,7 +5,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 This app was written as an exercise for Reas.cz. It is not intended for an actual use.
 
 ## Getting started
-### Prerequisities:
+### Prerequisites:
 
 - Node.js (im using v20.3.1)
 - npm (latest)
