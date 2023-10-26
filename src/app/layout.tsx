@@ -5,6 +5,7 @@ import React from 'react'
 import { Store } from '@/store/ContextStore'
 import styles from './layout.module.css'
 import Image from 'next/image'
+import { StyledEngineProvider } from '@mui/material'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,14 +18,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Store>
-          <div className={styles.appBar}>
-            <Image src={'/reasLogo.svg'} alt={'logo'} width={220} height={56} />
-          </div>
-          <div className={styles.page}>
-            <div className={styles.container}>{children}</div>
-          </div>
-        </Store>
+        <StyledEngineProvider injectFirst>
+          <Store>
+            <div className={styles.appBar}>
+              <Image src={'/reasLogo.svg'} alt={'logo'} width={220} height={56} />
+            </div>
+            <div className={styles.page}>
+              <div className={styles.container}>{children}</div>
+            </div>
+          </Store>
+        </StyledEngineProvider>
       </body>
     </html>
   )
