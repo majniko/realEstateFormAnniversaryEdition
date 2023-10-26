@@ -27,6 +27,8 @@ export const localization = {
       retry: 'Zkusit znovu',
       leadsList: 'Seznam zájemců',
       backToStart: '<- zpět na úvod',
+      title: 'Chci nabídku',
+      description: 'Vyplňte prosím následující formulář a my se vám ozveme s nabídkou.',
     },
   },
 }
