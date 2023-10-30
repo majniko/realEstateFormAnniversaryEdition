@@ -6,7 +6,7 @@ import { localization } from '@/utils/localization/localization'
 import { Button } from '@mui/material'
 import Link from 'next/link'
 
-export const revalidate = 30
+export const revalidate = 10
 
 export default async function Leads(): Promise<React.ReactElement> {
   const mappedLeads = await getLeads()
