@@ -6,6 +6,9 @@
 .pnp.js
 .idea
 
+#env
+.env
+
 # testing
 /coverage
 
