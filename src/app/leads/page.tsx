@@ -6,8 +6,12 @@ import { localization } from '@/utils/localization/localization'
 import { Button } from '@mui/material'
 import Link from 'next/link'
 
+export const revalidate = 30
+
 export default async function Leads(): Promise<React.ReactElement> {
   const mappedLeads = await getLeads()
+
+  console.log(mappedLeads)
 
   return (
     <div className={styles.leadsContainer}>
