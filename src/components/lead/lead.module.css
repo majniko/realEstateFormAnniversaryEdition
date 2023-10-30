@@ -1,4 +1,5 @@
 .leadItem {
+    overflow: hidden;
     display: block;
     float: left;
     background-color: lightgray;
