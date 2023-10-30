@@ -4,6 +4,7 @@ import { leadProps } from '@/utils/clientApiCalls/postLead'
 import { validateEmail } from '@/utils/validation/validateEmail'
 import { validatePhone } from '@/utils/validation/validatePhone'
 import { validateNotEmpty } from '@/utils/validation/validateNotEmpty'
+import { revalidatePath } from 'next/cache'
 
 export async function POST(req: Request) {
   const lead: leadProps = await req.json()
@@ -38,5 +39,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: 'prisma_error' })
   }
 
+  revalidatePath('/leads')
   return NextResponse.json({ message: 'success' })
 }
